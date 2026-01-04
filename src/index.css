@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 160 45% 10%;
+    --foreground: 120 30% 95%;
+
+    --card: 160 40% 15%;
+    --card-foreground: 120 30% 95%;
+
+    --popover: 160 40% 12%;
+    --popover-foreground: 120 30% 95%;
+
+    --primary: 156 60% 35%;
+    --primary-foreground: 120 30% 98%;
+
+    --secondary: 160 35% 20%;
+    --secondary-foreground: 120 30% 95%;
+
+    --muted: 160 30% 18%;
+    --muted-foreground: 120 20% 70%;
+
+    --accent: 45 80% 55%;
+    --accent-foreground: 160 45% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 160 30% 25%;
+    --input: 160 30% 25%;
+    --ring: 156 60% 45%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 160 40% 12%;
+    --sidebar-foreground: 120 30% 95%;
+    --sidebar-primary: 156 60% 35%;
+    --sidebar-primary-foreground: 120 30% 98%;
+    --sidebar-accent: 160 35% 20%;
+    --sidebar-accent-foreground: 120 30% 95%;
+    --sidebar-border: 160 30% 25%;
+    --sidebar-ring: 156 60% 45%;
+
+    /* Custom colors */
+    --emerald: 156 60% 35%;
+    --emerald-light: 156 50% 45%;
+    --emerald-dark: 160 50% 20%;
+    --gold: 45 80% 55%;
+    --gold-light: 45 85% 70%;
+  }
+
+  .dark {
+    --background: 160 45% 8%;
+    --foreground: 120 30% 95%;
+    --card: 160 40% 12%;
+    --card-foreground: 120 30% 95%;
+    --popover: 160 40% 10%;
+    --popover-foreground: 120 30% 95%;
+    --primary: 156 60% 40%;
+    --primary-foreground: 120 30% 98%;
+    --secondary: 160 35% 18%;
+    --secondary-foreground: 120 30% 95%;
+    --muted: 160 30% 15%;
+    --muted-foreground: 120 20% 65%;
+    --accent: 45 80% 55%;
+    --accent-foreground: 160 45% 10%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 160 30% 22%;
+    --input: 160 30% 22%;
+    --ring: 156 60% 50%;
+    --sidebar-background: 160 40% 10%;
+    --sidebar-foreground: 120 30% 95%;
+    --sidebar-primary: 156 60% 40%;
+    --sidebar-primary-foreground: 120 30% 98%;
+    --sidebar-accent: 160 35% 18%;
+    --sidebar-accent-foreground: 120 30% 95%;
+    --sidebar-border: 160 30% 22%;
+    --sidebar-ring: 156 60% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    direction: rtl;
+  }
+
+  body {
+    @apply bg-background text-foreground font-tajawal;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-l from-accent via-gold-light to-accent bg-clip-text text-transparent;
+  }
+
+  .bg-gradient-hero {
+    background: linear-gradient(
+      135deg,
+      hsl(160, 50%, 15%) 0%,
+      hsl(156, 60%, 25%) 50%,
+      hsl(160, 50%, 18%) 100%
+    );
+  }
+
+  .bg-pattern-islamic {
+    background-image: 
+      radial-gradient(circle at 25% 25%, hsl(156, 60%, 30%, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, hsl(45, 80%, 55%, 0.05) 0%, transparent 50%);
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 ease-out;
+  }
+
+  .card-hover:hover {
+    @apply -translate-y-3 shadow-2xl;
+    box-shadow: 0 25px 50px -12px hsl(156, 60%, 25%, 0.4);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+
+  .animation-delay-800 {
+    animation-delay: 800ms;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
